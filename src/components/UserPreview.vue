@@ -1,12 +1,12 @@
 <template>
-  <div class="user-preview grid grid-dir-col" @click="onUserClick">
+  <div class="user-preview grid grid-dir-col" @click.stop="onUserClick">
     <img :src="props.user.imgUrl" alt="User Image" class="user-image">
     <h2> {{ props.user.username }}</h2>
   </div>
 </template>
   
 <script setup>
-import { cloneVNode, onMounted } from 'vue';
+import {  onMounted } from 'vue';
 
 
 const props = defineProps({
@@ -22,14 +22,16 @@ const props = defineProps({
 
 
 
-onMounted(() => {
 
-  
+
+onMounted(() => {
+  console.log('user preview mounted');  
 })
 
 const onUserClick = () => {
   const userClone= JSON.parse( JSON.stringify(props.user))
-  window.parent.postMessage({ type: 'display_user', payload: userClone }, 'http://127.0.0.1:3000/');
+
+  window.parent.postMessage({ type: 'display_user', payload: userClone }, import.meta.env.VITE_MAIN_CONTAINER_URL);
 };
 </script>
   

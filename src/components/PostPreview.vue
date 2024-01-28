@@ -1,6 +1,11 @@
 <template>
-  <div class="post-preview">
+  <div class="post-preview" @click.stop="displayPost">
     <UserPreview :user="props.post.owner" />
+
+    <div class="post-header">
+      <h4>{{ props.post.txt }}</h4>
+    </div>
+
     <div class="post-meta">
       <span>Liked by {{ likesCount }} users</span>
       <span>{{ commentsCount }} comments</span>
@@ -25,6 +30,12 @@ const props = defineProps({
     type: Object,
   }
 });
+
+function displayPost() {
+  window.parent.postMessage(
+    { type: 'display_post', payload: JSON.parse(JSON.stringify(props.post)) }
+    , import.meta.env.VITE_MAIN_CONTAINER_URL);
+}
 
 const likesCount = computed(() => props.post.likedBy.length);
 const commentsCount = computed(() => props.post.comments.length);
