@@ -20,10 +20,6 @@ const props = defineProps({
   }
 });
 
-
-
-
-
 onMounted(() => {
   console.log('user preview mounted');  
 })
