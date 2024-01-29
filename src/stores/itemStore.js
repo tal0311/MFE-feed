@@ -16,8 +16,11 @@ export const usePostStore = defineStore('post', () => {
     post.value = await postService.query(filterBy.value)
   }
 
-  async function addPost(item) {
-    const itemToAdd = await postService.save(item)
+  async function addPost({txt}) {
+    let emptyPost= postService.getEmptyItem()
+    emptyPost.txt = txt
+    const itemToAdd = await postService.save(emptyPost)
+    console.log('emptyPost', emptyPost);
     post.value.push(itemToAdd)
     showSuccessMsg('Post Added!')
   }

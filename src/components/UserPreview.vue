@@ -54,6 +54,7 @@ const onUserClick = () => {
   height: 50px;
   max-width: 100%;
   height: auto;
+  aspect-ratio: 1/1
 }
 </style>
   

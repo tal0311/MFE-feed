@@ -15,6 +15,8 @@ import { usePostStore } from '@/stores/itemStore';
 
 const postStore = usePostStore();
 
+
+
 onMounted(() => {
   postStore.loadPosts();
   

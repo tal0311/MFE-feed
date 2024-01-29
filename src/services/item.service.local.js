@@ -1,7 +1,7 @@
 import { storageService } from './async-storage.service.js'
 // import { httpService } from './http.service.js'
 import { utilService } from './util.service.js'
-// import { userService } from './user.service.js'
+import { userService } from './user.service.js'
 
 import posts from './../../data/item.json'
 const STORAGE_KEY = 'post_DB'
@@ -42,7 +42,7 @@ async function save(item) {
     // savedItem = await httpService.put(`item/${item._id}`, item)
   } else {
     // Later, owner is set by the backend
-    // item.owner = userService.getLoggedinUser()
+    item.owner = userService.getLoggedInUser()
     savedItem = await storageService.post(STORAGE_KEY, item)
     // savedItem = await httpService.post('item', item)
   }

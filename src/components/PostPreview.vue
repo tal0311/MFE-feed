@@ -1,29 +1,24 @@
 <template>
-  <div class="post-preview" @click.stop="displayPost">
+  <section class="post-preview" @click.stop="displayPost">
     <UserPreview :user="props.post.owner" />
-
     <div class="post-header">
       <h4>{{ props.post.txt }}</h4>
     </div>
 
+    <span v-html="useSvg(icon)" @click.stop="onUserLike"></span>
     <div class="post-meta">
       <span>Liked by {{ likesCount }} users</span>
       <span>{{ commentsCount }} comments</span>
     </div>
-    <div v-if="props.post.comments.length" class="comments">
-      <h3>Comments:</h3>
-      <div class="comment" v-for="comment in props.post.comments" :key="comment.commentId">
-        <p><strong>{{ comment.owner.username }}:</strong> {{ comment.text }}</p>
-
-      </div>
-    </div>
-  </div>
+    </section>
 </template>
   
 <script setup>
-
+import {useSendMsg} from '@/composables/useSendMsg.js'
+import {useSvg} from '@/composables/useSvg.js'
 import UserPreview from '@/components/UserPreview.vue';
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
+
 
 const props = defineProps({
   post: {
@@ -31,10 +26,14 @@ const props = defineProps({
   }
 });
 
+const icon= ref('like')
+
+function onUserLike() {
+ icon.value = icon.value === 'like' ? 'like-full' : 'like';
+}
+
 function displayPost() {
-  window.parent.postMessage(
-    { type: 'display_post', payload: JSON.parse(JSON.stringify(props.post)) }
-    , import.meta.env.VITE_MAIN_CONTAINER_URL);
+  useSendMsg('display_post', props.post);
 }
 
 const likesCount = computed(() => props.post.likedBy.length);
