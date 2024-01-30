@@ -42,9 +42,10 @@ const commentsCount = computed(() => props.post.comments.length);
   
 <style scoped>
 .post-preview {
-  border: 1px solid #ddd;
   padding: 20px;
   margin-bottom: 20px;
+  background-color: #fff;
+  box-shadow: 0px 0px 3px var(--clr3);
 }
 
 .post-header h2 {

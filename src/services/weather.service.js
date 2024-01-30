@@ -1,4 +1,6 @@
-const WEATHER_KEY = import.meta.env.VITE_WEATHER_API_KEY
+// const WEATHER_KEY = import.meta.env.VITE_WEATHER_API_KEY
+// VITE_WEATHER_API_KEY=dae5f4bdc5e8ca68c1090b0be2429cfb
+
 
 async function getWeatherByLocation({ lat, lng }) {
   const response = await fetch(
@@ -17,7 +19,7 @@ async function getWeatherByLocation({ lat, lng }) {
 }
 
 function kelvinToCelsius(kelvin) {
-  return (kelvin - 273.15).toFixed(0) + '°C' // Rounds the result to 2 decimal places
+  return (kelvin - 273.15).toFixed(0) + '°C'
 }
 
 export const weatherService = {
