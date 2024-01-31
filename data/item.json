@@ -15,7 +15,7 @@
                 "owner": {
                     "userId": "user2",
                     "username": "jane_doe",
-                    "imgUrl":"https://xsgames.co/randomusers/assets/avatars/male26.jpg" 
+                    "imgUrl":"https://xsgames.co/randomusers/assets/avatars/male/60.jpg" 
                 },
                 "text": "comment1",
                 "createdAt": 1640995200000
@@ -41,9 +41,9 @@
     {
         "postId": "2",
         "owner": {
-            "userId": "user1",
+            "userId": "user3",
             "username": "john_doe",
-            "imgUrl":"https://xsgames.co/randomusers/assets/avatars/male/75.jpg" 
+            "imgUrl":"https://xsgames.co/randomusers/assets/avatars/male/46.jpg" 
         },
         "likedBy": ["user2", "user3"],
         "comments": [
