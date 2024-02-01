@@ -1,81 +1,70 @@
-
-
 [
-    {
-        "postId": "1",
-        "owner": {
-            "userId": "user1",
-            "username": "john_doe",
-            "imgUrl":"https://xsgames.co/randomusers/assets/avatars/male/65.jpg" 
-        },
-        "likedBy": ["user2", "user3"],
-        "comments": [
-            {
-                "commentId": "1",
-                "owner": {
-                    "userId": "user2",
-                    "username": "jane_doe",
-                    "imgUrl":"https://xsgames.co/randomusers/assets/avatars/male/60.jpg" 
-                },
-                "text": "comment1",
-                "createdAt": 1640995200000
-           
-            },
-            {
-                "commentId": "2",
-                "owner": {
-                    "userId": "user3",
-                    "username": "joe_doe",
-                    "imgUrl":"https://xsgames.co/randomusers/assets/avatars/male/46.jpg" 
-                },
-                "text": "comment2",
-                "createdAt": 1640995200000
-            
-            }
-        ],
-        "updatedAt": 1640995200000,
-        "createdAt": 1640995200000,
-        "txt": "This is a sample post"
-      
+  {
+    "postId": "1",
+    "owner": {
+      "userId": "user1",
+      "username": "john_doe",
+      "imgUrl": "https://xsgames.co/randomusers/assets/avatars/male/65.jpg"
     },
-    {
-        "postId": "2",
+    "likedBy": ["user2", "user3"],
+    "comments": [
+      {
+        "commentId": "1",
         "owner": {
-            "userId": "user3",
-            "username": "john_doe",
-            "imgUrl":"https://xsgames.co/randomusers/assets/avatars/male/46.jpg" 
+          "userId": "user2",
+          "username": "jane_doe",
+          "imgUrl": "https://xsgames.co/randomusers/assets/avatars/male/60.jpg"
         },
-        "likedBy": ["user2", "user3"],
-        "comments": [
-            {
-                "commentId": "1",
-                "owner": {
-                    "userId": "user2",
-                    "username": "jane_doe",
-                    "imgUrl":"https://xsgames.co/randomusers/assets/avatars/male/46.jpg" 
-                },
-                "text": "comment1",
-                "createdAt": 1640995200000
-           
-            },
-            {
-                "commentId": "2",
-                "owner": {
-                    "userId": "user3",
-                    "username": "joe_doe",
-                    "imgUrl":"https://xsgames.co/randomusers/assets/avatars/male/56.jpg" 
-                },
-                "text": "comment2",
-                "createdAt": 1640995200000
-            
-            }
-        ],
-        "updatedAt": 1640995200000,
-        "createdAt": 1640995200000,
-        "txt": "This is a sample post"
-      
-    }
-  
+        "text": "comment1",
+        "createdAt": 1640995200000
+      },
+      {
+        "commentId": "2",
+        "owner": {
+          "userId": "user3",
+          "username": "joe_doe",
+          "imgUrl": "https://xsgames.co/randomusers/assets/avatars/male/46.jpg"
+        },
+        "text": "comment2",
+        "createdAt": 1640995200000
+      }
+    ],
+    "updatedAt": 1640995200000,
+    "createdAt": 1640995200000,
+    "txt": "This is a sample post"
+  },
+  {
+    "postId": "2",
+    "owner": {
+      "userId": "user3",
+      "username": "john_doe",
+      "imgUrl": "https://xsgames.co/randomusers/assets/avatars/male/46.jpg"
+    },
+    "likedBy": ["user2", "user3"],
+    "comments": [
+      {
+        "commentId": "1",
+        "owner": {
+          "userId": "user2",
+          "username": "jane_doe",
+          "imgUrl": "https://xsgames.co/randomusers/assets/avatars/male/46.jpg"
+        },
+        "text": "comment1",
+        "createdAt": 1640995200000
+      },
+      {
+        "commentId": "2",
+        "owner": {
+          "userId": "user3",
+          "username": "joe_doe",
+          "imgUrl": "https://xsgames.co/randomusers/assets/avatars/male/56.jpg"
+        },
+        "text": "comment2",
+        "createdAt": 1640995200000
+      }
+    ],
+    "updatedAt": 1640995200000,
+    "createdAt": 1640995200000,
+    "txt": "This is a sample post"
+  }
 ]
-
-     

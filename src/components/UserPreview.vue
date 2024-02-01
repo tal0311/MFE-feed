@@ -26,7 +26,6 @@ onMounted(() => {
 
 const onUserClick = () => {
   const userClone= JSON.parse( JSON.stringify(props.user))
-
   window.parent.postMessage({ type: 'display_user', payload: userClone }, import.meta.env.VITE_MAIN_CONTAINER_URL);
 };
 </script>
