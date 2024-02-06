@@ -26,11 +26,13 @@
           "imgUrl": "https://xsgames.co/randomusers/assets/avatars/male/46.jpg"
         },
         "text": "comment2",
+        "imgUrl": "https://source.unsplash.com/random/300x300",
         "createdAt": 1640995200000
       }
     ],
     "updatedAt": 1640995200000,
     "createdAt": 1640995200000,
+    "imgUrl": "https://source.unsplash.com/random/300x300",
     "txt": "This is a sample post"
   },
   {
@@ -65,6 +67,7 @@
     ],
     "updatedAt": 1640995200000,
     "createdAt": 1640995200000,
+    "imgUrl": "https://source.unsplash.com/random/300x300",
     "txt": "This is a sample post"
   }
 ]

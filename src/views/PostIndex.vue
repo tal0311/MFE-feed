@@ -9,7 +9,7 @@
 <script setup>
 
 import PostList from '@/components/PostList.vue';
-import { onMounted, ref, computed } from 'vue';
+import { onMounted, computed } from 'vue';
 
 import { usePostStore } from '@/stores/itemStore';
 
@@ -30,8 +30,7 @@ const posts = computed(() => postStore.getPosts);
 
 <style scoped >
 main {
-  background-color: #f0f0f0;
-  padding: 1rem;
+
   /* border-radius: 1rem; */
   /* box-shadow: 0 0 1rem rgba(0,0,0,0.2); */
 

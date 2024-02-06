@@ -13,6 +13,4 @@ app.use(createPinia())
 app.use(router)
 app.mount('#app')
 
-window.addEventListener('message',(ev)=>{
-    useOnMsg(ev.data.type, ev.data.payload)
-})
+window.addEventListener('message', (ev) => useOnMsg(ev.data.type, ev.data.payload))

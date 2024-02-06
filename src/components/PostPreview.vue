@@ -1,21 +1,31 @@
 <template>
-  <section class="post-preview" @click.stop="displayPost">
-    <UserPreview :user="props.post.owner" />
-    <div class="post-header">
-      <h4>{{ props.post.txt }}</h4>
-    </div>
+  <section class="post-preview grid" @click.stop="displayPost">
 
-    <span v-html="useSvg(icon)" @click.stop="onUserLike"></span>
-    <div class="post-meta">
-      <span>Liked by {{ likesCount }} users</span>
-      <span>{{ commentsCount }} comments</span>
-    </div>
+    <section class="post-main-content">
+      <UserPreview :user="props.post.owner" />
+
+      <div class="post-header">
+        <h4>{{ props.post.txt }}</h4>
+      </div>
     </section>
+
+    <img :src="props.post.imgUrl" alt="Post Image" class="post-img">
+
+    <section class="post-footer">
+      <span v-html="useSvg(icon)" @click.stop="onUserLike"></span>
+      <div class="post-meta">
+        <span>Liked by {{ likesCount }} users</span>
+        <span>{{ commentsCount }} comments</span>
+      </div>
+    </section>
+
+
+  </section>
 </template>
   
 <script setup>
-import {useSendMsg} from '@/composables/useSendMsg.js'
-import {useSvg} from '@/composables/useSvg.js'
+import { useSendMsg } from '@/composables/useSendMsg.js'
+import { useSvg } from '@/composables/useSvg.js'
 import UserPreview from '@/components/UserPreview.vue';
 import { computed, ref } from 'vue';
 
@@ -26,10 +36,10 @@ const props = defineProps({
   }
 });
 
-const icon= ref('like')
+const icon = ref('like')
 
 function onUserLike() {
- icon.value = icon.value === 'like' ? 'like-full' : 'like';
+  icon.value = icon.value === 'like' ? 'like-full' : 'like';
 }
 
 function displayPost() {
@@ -42,29 +52,34 @@ const commentsCount = computed(() => props.post.comments.length);
   
 <style scoped>
 .post-preview {
-  padding: 20px;
   margin-bottom: 20px;
   background-color: #fff;
   box-shadow: 0px 0px 3px var(--clr3);
+  grid-template-columns: 1.4fr 0.6fr;
+  grid-template-rows: 1.6fr 0.4fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "post-content post-img"
+    "post-footer post-img";
 }
 
 .post-header h2 {
   margin: 0;
 }
 
-.post-image {
-  max-width: 100%;
-  height: auto;
+.post-img {
+  grid-area: post-img;
+ }
+
+.post-main-content {
+  grid-area: post-content;
+  padding: 1.2rem;
 }
 
-.comment {
-  border-top: 1px solid #eee;
-  padding-top: 10px;
-}
-
-.comment-image {
-  max-width: 50px;
-  height: auto;
+.post-footer {
+  grid-area: post-footer;
+  padding: 1.2rem;
 }
 </style>
   

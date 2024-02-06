@@ -28,4 +28,8 @@ function sendUserToParent() {
 
 };
 </script>
-<style scoped></style>
+<style scoped>
+
+
+  
+  </style>
