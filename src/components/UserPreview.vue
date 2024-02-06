@@ -35,7 +35,6 @@ const onUserClick = () => {
   justify-content: start;
   align-items: center;
   gap: 1rem;
-
   margin-bottom: 1rem;
 }
 

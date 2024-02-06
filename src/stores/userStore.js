@@ -1,6 +1,7 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 
+
 import { userService } from '@/services/user.service.js'
 
 export const useUserStore = defineStore('user', () => {
@@ -10,6 +11,7 @@ export const useUserStore = defineStore('user', () => {
 
   async function loadUser() {
     loggedIdUser.value = await userService.getLoggedInUser()
+   console.log('loggedIdUser', loggedIdUser.value);
   }
 
   async function updateItem({ userId, key, value }) {
