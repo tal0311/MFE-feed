@@ -17,13 +17,16 @@ export const postService = {
 window.postService = postService
 
 async function query(filterBy) {
-  // return httpService.get(STORAGE_KEY, filterBy)
-
+  console.log('filterBy',filterBy);
   let posts = await storageService.query(STORAGE_KEY)
   if (filterBy.txt) {
     const regex = new RegExp(filterBy.txt, 'i')
-    posts = posts.filter((item) => regex.test(item.vendor) || regex.test(item.description))
+    posts = posts.filter((item) => {
+      console.log(item.txt);
+      regex.test(item.txt)
+    })
   }
+  console.log(posts);
   return posts
 }
 function getById(itemId) {
@@ -49,7 +52,7 @@ async function save(item) {
   return savedItem
 }
 
-function getEmptyItem() {
+function getEmptyItem(txt) {
   return {
     postId:null,
     owner: {},
@@ -57,8 +60,8 @@ function getEmptyItem() {
     comments: [],
     updatedAt: null,
     createdAt: Date.now(),
-    txt: "This is a sample post",
-    imgUrl: "https://example.com/image.jpg"
+    txt,
+    imgUrl: "https://source.unsplash.com/random/300x300"
   }
 }
 

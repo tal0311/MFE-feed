@@ -1,7 +1,6 @@
-
-
 <template>
   <main>
+    <pre>{{ posts }}</pre>
     <PostList v-if="posts" :posts="posts" />
   </main>
 </template>
@@ -17,9 +16,10 @@ const postStore = usePostStore();
 
 
 
+
 onMounted(() => {
   postStore.loadPosts();
-  
+
 });
 
 
@@ -28,7 +28,7 @@ const posts = computed(() => postStore.getPosts);
 </script>
 
 
-<style scoped >
+<style scoped>
 main {
 
   /* border-radius: 1rem; */

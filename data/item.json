@@ -3,7 +3,7 @@
     "postId": "1",
     "owner": {
       "userId": "user1",
-      "username": "john_doe",
+      "username": "john_boe",
       "imgUrl": "https://xsgames.co/randomusers/assets/avatars/male/65.jpg"
     },
     "likedBy": ["user2", "user3"],
@@ -33,7 +33,7 @@
     "updatedAt": 1640995200000,
     "createdAt": 1640995200000,
     "imgUrl": "https://source.unsplash.com/random/300x300",
-    "txt": "This is a sample post"
+    "txt": "This is a sample post form israel"
   },
   {
     "postId": "2",
@@ -68,6 +68,6 @@
     "updatedAt": 1640995200000,
     "createdAt": 1640995200000,
     "imgUrl": "https://source.unsplash.com/random/300x300",
-    "txt": "This is a sample post"
+    "txt": "my post number 2"
   }
 ]

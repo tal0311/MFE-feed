@@ -13,14 +13,14 @@ export const usePostStore = defineStore('post', () => {
   const getCurrPost = computed(() => currPost?.value)
 
   async function loadPosts() {
-    post.value = await postService.query(filterBy.value)
+    post.value = await postService.query(JSON.parse(JSON.stringify(filterBy.value)))
   }
 
-  async function addPost({txt}) {
-    let emptyPost= postService.getEmptyItem()
-    emptyPost.txt = txt
+  async function addPost({ txt }) {
+    let emptyPost = postService.getEmptyItem(txt)
+
     const itemToAdd = await postService.save(emptyPost)
-    console.log('emptyPost', emptyPost);
+    console.log('emptyPost', emptyPost)
     post.value.push(itemToAdd)
     showSuccessMsg('Post Added!')
   }
@@ -46,6 +46,12 @@ export const usePostStore = defineStore('post', () => {
     currPost.value = await postService.getById(itemId)
   }
 
+  async function setFilterBy({txt}) {
+    filterBy.value = { ...filterBy.value, txt}
+    console.log(filterBy.value)
+    await loadPosts()
+  }
+
   return {
     loadPosts,
     getPosts,
@@ -53,6 +59,7 @@ export const usePostStore = defineStore('post', () => {
     addPost,
     removePost,
     updatePost,
-    getPostById
+    getPostById,
+    setFilterBy
   }
 })

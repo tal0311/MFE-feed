@@ -1,5 +1,6 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
+import { useSendMsg } from '@/composables/useSendMsg';
 
 
 import { userService } from '@/services/user.service.js'
@@ -11,7 +12,11 @@ export const useUserStore = defineStore('user', () => {
 
   async function loadUser() {
     loggedIdUser.value = await userService.getLoggedInUser()
-   console.log('loggedIdUser', loggedIdUser.value);
+  //  console.log('loggedIdUser', loggedIdUser.value);
+
+   useSendMsg('handle_user', loggedIdUser.value);
+
+
   }
 
   async function updateItem({ userId, key, value }) {

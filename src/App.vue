@@ -5,8 +5,8 @@
 
 <script setup>
 import { useUserStore } from '@/stores/userStore';
-import { computed, watchEffect, onBeforeMount } from 'vue';
-import { useSendMsg } from '@/composables/useSendMsg';
+import {  onBeforeMount } from 'vue';
+
 
 const userStore = useUserStore();
 onBeforeMount(() => {
@@ -17,16 +17,11 @@ function loadUser() {
     userStore.loadUser();
 }
 
-const loggedUser = computed(() => userStore.getLoggedUser);
 
-watchEffect(() => {
-    if (loggedUser.value) sendUserToParent();
-});
 
-function sendUserToParent() {
-    useSendMsg('handle_user', loggedUser.value);
 
-};
+
+
 </script>
 <style scoped>
 

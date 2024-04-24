@@ -114,12 +114,23 @@ function getEmptyUser() {
     fullname: 'Al Tamit',
     username: 'al.amit',
     email: 'al.tmit@gmail.com',
-    phone: '050-1234567',
+    call: '050-1234567',
     password: '1234',
-    address: 'Tel Aviv',
+    location: 'Tel Aviv',
     imgUrl:
       'https://res.cloudinary.com/tal-amit-dev/image/upload/v1679773600/Instagram/WhatsApp_Image_2023-03-25_at_22.42.55_gh0eyd.jpg',
-    color: 'steelblue'
+    color: 'steelblue',
+    note:'',
+    dates: [
+      {
+          date: "2022-03-15",
+          event: "Birthday"
+      },
+      {
+          date: "2022-09-30",
+          event: "Anniversary"
+      }
+  ]
   })
   // login(user[0])
 })()

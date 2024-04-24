@@ -1,7 +1,7 @@
 
 <template>
  <section>
-    <PostPreview v-for="post in props.posts" :key="post._id" :post="post" />
+    <PostPreview v-for="post in props.posts" :key="post.postId" :post="post" />
  </section>
 </template>
 <script setup>
