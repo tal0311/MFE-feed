@@ -1,13 +1,15 @@
 <template>
   <main>
-    <pre>{{ posts }}</pre>
+    <!-- <pre>{{ posts }}</pre> -->
     <PostList v-if="posts" :posts="posts" />
+    <NoPosts v-if="hasPosts" />
   </main>
 </template>
 
 <script setup>
 
 import PostList from '@/components/PostList.vue';
+import NoPosts from '@/components/NoPosts.vue';
 import { onMounted, computed } from 'vue';
 
 import { usePostStore } from '@/stores/itemStore';
@@ -24,6 +26,7 @@ onMounted(() => {
 
 
 const posts = computed(() => postStore.getPosts);
+const hasPosts = computed(() => !posts.value || !posts.value.length);
 
 </script>
 

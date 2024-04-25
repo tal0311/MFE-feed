@@ -1,4 +1,4 @@
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { defineStore } from 'pinia'
 
 import { postService } from '@/services/item.service.local.js'
@@ -14,6 +14,16 @@ export const usePostStore = defineStore('post', () => {
 
   async function loadPosts() {
     post.value = await postService.query(JSON.parse(JSON.stringify(filterBy.value)))
+  }
+
+  watch(filterBy, async () => {
+    await loadPosts()
+  })
+
+  async function setFilterBy({txt}) {
+    filterBy.value = { ...filterBy.value, txt}
+    console.log(filterBy.value)
+    
   }
 
   async function addPost({ txt }) {
@@ -46,11 +56,7 @@ export const usePostStore = defineStore('post', () => {
     currPost.value = await postService.getById(itemId)
   }
 
-  async function setFilterBy({txt}) {
-    filterBy.value = { ...filterBy.value, txt}
-    console.log(filterBy.value)
-    await loadPosts()
-  }
+
 
   return {
     loadPosts,

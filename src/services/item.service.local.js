@@ -21,10 +21,7 @@ async function query(filterBy) {
   let posts = await storageService.query(STORAGE_KEY)
   if (filterBy.txt) {
     const regex = new RegExp(filterBy.txt, 'i')
-    posts = posts.filter((item) => {
-      console.log(item.txt);
-      regex.test(item.txt)
-    })
+    posts = posts.filter((item) => regex.test(item.txt))
   }
   console.log(posts);
   return posts
